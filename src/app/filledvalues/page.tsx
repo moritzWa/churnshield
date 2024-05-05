@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import { SidebarNav } from "@/components/sidebarnav";
-import './onboarding.css';
+import '../dashboard/onboarding.css';
 
 const sidebarNavItems = [
   {
@@ -92,7 +92,7 @@ export default function DashboardPage() {
             <div className="space-y-6">
               {clickedSubmitCount > 3 &&
               
-              <form method="POST" action="/filledvalues">
+              <form method="POST" action="/fill-out-values">
               <div className="onboarding-ui">
                 <h1 className="onboarding-title">Hey Margarita, it looks like you are trying to connect your NameCheap DNS Server.</h1>
                 <ul className="onboarding-list">
@@ -111,7 +111,7 @@ export default function DashboardPage() {
       Set up your TTL Value here. This is a numerical value used for data validity and expiration
     </p>
   </div>
-  <input type="text" className="ml-10 border-2 border-gray-300 w-full md:w-1/2" />
+  <input type="text" value="60" className="ml-10 border-2 border-gray-300 w-full md:w-1/2" />
 </div>
 <div className="flex items-center">
   <div>
@@ -120,7 +120,7 @@ export default function DashboardPage() {
     Set up your TTL Value here. This is a numerical value used for data validity and expiration
     </p>
   </div>
-  <select className="ml-10 border-2 border-gray-500 w-full md:w-1/2 text-center text-gray-300">
+  <select className="ml-10 border-2 border-gray-500 w-full md:w-1/2 text-center text-gray-600">
   <option value="CNAME">CNAME</option>
   <option value="Option1">AAA</option>
   <option value="Option2">SRV</option>
