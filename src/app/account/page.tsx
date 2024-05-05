@@ -6,7 +6,6 @@ import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import { SidebarNav } from "@/components/sidebarnav";
 import '../dashboard/onboarding.css';
-import Confetti from "react-confetti";
 
 const sidebarNavItems = [
   {
@@ -15,7 +14,7 @@ const sidebarNavItems = [
   },
   {
     title: "Account",
-    href: "/examples/forms/account",
+    href: "/account",
   },
   {
     title: "Appearance",
@@ -40,7 +39,7 @@ export default function DashboardPage() {
   ];
 
   const [clickedSubmitCount, setclickedSubmitCount] = useState(0);
-  const [showConfetti, setShowConfetti] = useState(false);
+
   return (
     <div className="w-full h-fulls">
       <div className="bg-white shadow-md">
@@ -91,36 +90,37 @@ export default function DashboardPage() {
           </aside>
           <div className="flex-1 lg:max-w-2xl">
             <div className="space-y-6">
-       
+              {clickedSubmitCount > 3 &&
               
-              <form method="POST" action="/account">
+              <form method="POST" action="/filledvalues">
               <div className="onboarding-ui">
-                <h1 className="onboarding-title">Nice! You are ready to submit and move onto the next step</h1>
+                <h1 className="onboarding-title">Hey Margarita, it looks like you are trying to connect your NameCheap DNS Server.</h1>
                 <ul className="onboarding-list">
-                  <li>Go to Account Page and fill out details.</li>
+                  <li>You forgot to input the TTL value. The correct value is 60.</li>
+                  <li>You selected the Wrong Type: The correct Type is CNAME.</li>
                 </ul>
-                <button type="submit" className="onboarding-button">Go to Account Page</button>
+                <button type="submit" className="onboarding-button">Fill out correct values</button>
                 <button className="onboarding-button">Ask Follow Up</button>
               </div>
             </form>
-
+}
               <div className="flex items-center">
   <div>
-    <h3 className="text-lg font-medium">TTL Value</h3>
+    <h3 className="text-lg font-medium">Github username</h3>
     <p className="text-sm text-muted-foreground">
       Set up your TTL Value here. This is a numerical value used for data validity and expiration
     </p>
   </div>
-  <input type="text" value="60" className="ml-10 border-2 border-gray-300 w-full md:w-1/2" />
+  <input type="text" className="ml-10 border-2 border-gray-300 w-full md:w-1/2" />
 </div>
 <div className="flex items-center">
   <div>
-    <h3 className="text-lg font-medium">Type</h3>
+    <h3 className="text-lg font-medium">Github API</h3>
     <p className="text-sm text-muted-foreground">
     Set up your TTL Value here. This is a numerical value used for data validity and expiration
     </p>
   </div>
-  <select className="ml-10 border-2 border-gray-500 w-full md:w-1/2 text-center text-gray-600">
+  <select className="ml-10 border-2 border-gray-500 w-full md:w-1/2 text-center text-gray-300">
   <option value="CNAME">CNAME</option>
   <option value="Option1">AAA</option>
   <option value="Option2">SRV</option>
@@ -129,22 +129,21 @@ export default function DashboardPage() {
 </div>
 <div className="flex items-center">
   <div>
-    <h3 className="text-lg font-medium">Connections</h3>
+    <h3 className="text-lg font-medium">Username</h3>
     <p className="text-sm text-muted-foreground">
     Set up your TTL Value here. This is a numerical value used for data validity and expiration
     </p>
   </div>
-  <input type="text" value="76.76.21.21" className="ml-10 border-2 border-gray-300 w-full md:w-1/2" />
+  <input type="text" className="ml-10 border-2 border-gray-300 w-full md:w-1/2" />
 </div>
               <Separator />
               <Button
-        onClick={() => {
-          setShowConfetti(true);
-        }}
-      >
-        Submit
-      </Button>
-      {showConfetti && <Confetti />}
+                onClick={() => {
+                  setclickedSubmitCount((prev) => prev + 1);
+                }}
+              >
+                Submit
+              </Button>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ const sidebarNavItems = [
   },
   {
     title: "Account",
-    href: "/examples/forms/account",
+    href: "/account",
   },
   {
     title: "Appearance",
