@@ -1,12 +1,12 @@
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import { SidebarNav } from "./components/SidebarNav";
+import OnboardingUI from '@/components/onboarding';
 
 export const metadata: Metadata = {
   title: "Dashboard",
   description: "Example dashboard app built using the components.",
 };
-
 const sidebarNavItems = [
   {
     title: "DB Connection",
@@ -30,7 +30,15 @@ const sidebarNavItems = [
   },
 ];
 
+
+
 export default function DashboardPage() {
+  const steps = [
+    {
+      highlightComponent: <h3 className="text-lg font-medium">Test</h3>,
+      description: 'This is where you can set up your database connection.'
+    },
+  ]
   return (
     <div className="w-full h-fulls">
       <div className="bg-white shadow-md">
@@ -81,11 +89,27 @@ export default function DashboardPage() {
           </aside>
           <div className="flex-1 lg:max-w-2xl">
             <div className="space-y-6">
+            <OnboardingUI />
               <div>
+        
                 <h3 className="text-lg font-medium">DB Connection</h3>
                 <p className="text-sm text-muted-foreground">
                   Set up your DB connection to our product here.
-                </p>
+                </p> 
+              </div>
+              <div>
+        
+                <h3 className="text-lg font-medium">Account</h3>
+                <p className="text-sm text-muted-foreground">
+                  Set up your DB connection to our product here.
+                </p> 
+              </div>
+              <div>
+        
+                <h3 className="text-lg font-medium">Appearance</h3>
+                <p className="text-sm text-muted-foreground">
+                  Set up your DB connection to our product here.
+                </p> 
               </div>
               <Separator />
               {/* todo add some settings here */}
